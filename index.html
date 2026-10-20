@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<!-- Gerenciador de Aluguel de Carros | v1.1 | 18/10/2026 15:15 | Priceline incluída em todos os países | v1.0 | 18/10/2026 14:55 | primeira versão: cadastro de locações com todos os critérios, lista com ofertas encontradas, alteração de alvo e datas, encerramento -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Gerenciador de Aluguel</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="apple-mobile-web-app-title" content="Aluguel">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style>
+:root{--navy:#13294B;--ceu:#6FB0E8;--papel:#F5F8FB;--tinta:#1C2430;--suave:#5B6B80;--input:#EBFFFF;--ok:#2E7D55;--alerta:#B7791F;--erro:#B03A2E;--linha:#D5DEE8;
+ box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);font-size:17px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* computador (mouse/trackpad): tudo escala com a janela; mínimo 10px, sem máximo */
+@media (hover:hover) and (pointer:fine){html{font-size:max(10px,1.415vw)}body{min-width:707px}}
+body{margin:0;background:var(--papel);color:var(--tinta);font-family:Calibri,Carlito,"Segoe UI",-apple-system,Helvetica,Arial,sans-serif;font-size:1rem;line-height:1.45}
+header{background:var(--navy);color:#fff;padding:1.2941rem 1.1765rem 1.5294rem}
+header .wrap{display:flex;align-items:flex-end;justify-content:space-between;gap:0.7059rem;flex-wrap:wrap}
+h1{margin:0;font-size:1.7647rem;font-weight:700;letter-spacing:.2px}
+header p{margin:0.2353rem 0 0;color:#BFD6EE;font-size:0.9412rem}
+.wrap{max-width:65rem;margin:0 auto}
+main{padding:1.1765rem}
+section{margin-bottom:1.6471rem}
+h2{font-size:1.2941rem;margin:0 0 0.7059rem;color:var(--navy)}
+h3{font-size:1rem;margin:1.0588rem 0 0.5882rem;color:var(--navy)}
+h3:first-of-type{margin-top:0}
+.execucao{min-width:12.9412rem;font-size:0.8824rem;color:#DCE9F6;text-align:right}
+.lado{display:flex;flex-direction:column;align-items:flex-end;gap:0.7059rem}
+.selo{background:#1F252D;border:1px solid #3A4452;border-radius:0.5882rem;padding:0.3529rem 0.8235rem;color:#A9D6F5;font-weight:700;font-size:0.8235rem;line-height:1.35;text-align:right;white-space:nowrap}
+form,.painel{background:#fff;border:1px solid var(--linha);border-radius:0.5882rem;padding:1.0588rem}
+.grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:0.8235rem}
+label{display:block;font-size:0.8824rem;color:var(--suave);margin-bottom:0.2353rem}
+input,select{width:100%;font:inherit;color:var(--tinta);background:var(--input);border:1px solid #9FC4CC;border-radius:0.3529rem;padding:0.5882rem 0.6471rem;min-height:2.5882rem}
+input:focus,select:focus,button:focus-visible{outline:3px solid var(--ceu);outline-offset:1px}
+.grade>div{min-width:0}
+input[type="date"]{-webkit-appearance:none;appearance:none;display:block;min-width:0;max-width:100%;height:2.5882rem;line-height:1.2941rem}
+input[type="date"]::-webkit-date-and-time-value{text-align:left;margin:0}
+input[type="date"]::-webkit-calendar-picker-indicator{margin:0}
+.dica{font-size:0.8235rem;color:var(--suave);margin-top:0.2353rem}
+.lembrete{background:#FFF7E6;border-left:0.2353rem solid var(--alerta);padding:0.4706rem 0.7059rem;border-radius:0.2353rem;font-size:0.8824rem;margin:0 0 0.8235rem}
+.opcoes{display:flex;flex-wrap:wrap;gap:0.4706rem}
+.opcoes label{display:flex;align-items:center;gap:0.4118rem;margin:0;font-size:0.9412rem;color:var(--tinta);background:var(--input);border:1px solid #9FC4CC;border-radius:0.3529rem;padding:0.4118rem 0.7059rem;min-height:2.5882rem;cursor:pointer}
+.opcoes input{width:auto;min-height:0;margin:0;accent-color:var(--navy)}
+button{font:inherit;border:0;border-radius:0.3529rem;padding:0.5882rem 0.9412rem;min-height:2.5882rem;cursor:pointer}
+.principal{background:var(--navy);color:#fff;font-weight:700}
+.secundario{background:#E4ECF4;color:var(--navy)}
+.perigo{background:#fff;color:var(--erro);border:1px solid #E3B9B4}
+button:disabled{opacity:.5;cursor:default}
+.previa{margin-top:0.9412rem;padding:0.8235rem;border:1px dashed var(--ceu);border-radius:0.4706rem;background:#F4F9FE;font-size:0.9412rem}
+.previa code{font-family:inherit;font-weight:700;color:var(--navy)}
+.aviso{color:var(--alerta);font-weight:700}.erro{color:var(--erro);font-weight:700}.certo{color:var(--ok);font-weight:700}
+.acoes{display:flex;gap:0.5882rem;flex-wrap:wrap;margin-top:0.9412rem}
+#msg{min-height:1.4118rem;margin-top:0.5882rem}
+/* cartão da locação: canhoto */
+.bilhete{display:grid;grid-template-columns:1fr auto;background:#fff;border:1px solid var(--linha);border-radius:0.5882rem;margin-bottom:0.8235rem;position:relative;overflow:hidden}
+.bilhete .corpo{padding:0.9412rem 1.0588rem;min-width:0}
+.bilhete .canhoto{padding:0.9412rem 1.0588rem;border-left:2px dashed var(--linha);display:flex;flex-direction:column;justify-content:center;gap:0.4706rem;min-width:10rem;background:#FAFCFE;position:relative}
+.bilhete .canhoto::before,.bilhete .canhoto::after{content:"";position:absolute;left:-0.6471rem;width:1.1765rem;height:1.1765rem;border-radius:50%;background:var(--papel);border:1px solid var(--linha)}
+.bilhete .canhoto::before{top:-0.6471rem}.bilhete .canhoto::after{bottom:-0.6471rem}
+.rota{font-size:1.6471rem;font-weight:700;color:var(--navy);line-height:1.1}
+.rota small{font-size:0.9412rem;font-weight:400;color:var(--suave);margin-left:0.3529rem}
+.meta{color:var(--suave);font-size:0.8824rem;margin-top:0.2353rem}
+.precos{margin-top:0.4706rem;font-size:0.9412rem}
+.estado{display:inline-block;align-self:center;width:max-content;font-size:0.8235rem;padding:0.1176rem 0.4706rem;border-radius:0.5882rem;background:#E6F4EC;color:var(--ok)}
+.editar{display:none;gap:0.4706rem;margin-top:0.5882rem}
+.editar.aberto{display:flex}
+.editar input{max-width:8.2353rem}
+.editarDatas{display:none;flex-wrap:wrap;align-items:flex-end;gap:0.4706rem;margin-top:0.5882rem}
+.editarDatas.aberto{display:flex}
+.editarDatas label{margin:0}
+.editarDatas .data{width:11.5rem}
+.data{position:relative;display:flex;gap:0.3529rem}
+.verOfertas{margin-top:0.5882rem;background:none;padding:0;min-height:0;color:var(--navy);font-weight:700;text-decoration:underline;text-underline-offset:0.18rem}
+.ofertas{display:none;margin-top:0.5882rem}
+.ofertas.aberto{display:block}
+.ofertas .quando{font-size:0.8235rem;color:var(--suave);margin-bottom:0.3529rem}
+.ofertas .rolar{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.ofertas table{border-collapse:collapse;width:100%;font-size:0.8824rem;min-width:36rem}
+.ofertas th{text-align:left;font-weight:400;color:var(--suave);padding:0.2941rem 0.4706rem;border-bottom:1px solid var(--linha);white-space:nowrap}
+.ofertas td{padding:0.4118rem 0.4706rem;border-bottom:1px solid #EEF2F6;vertical-align:top}
+.ofertas td.num{white-space:nowrap;font-variant-numeric:tabular-nums}
+.ofertas tr.melhor td{background:#F1F8F4}
+.ofertas tr.melhor td:first-child{font-weight:700}
+.ofertas tr.nao td{color:var(--suave)}
+.ofertas .sim{color:var(--ok);font-weight:700}
+.ofertas a{color:var(--navy);font-weight:700;white-space:nowrap}
+.data input.texto{flex:1;min-width:0}
+.data input.texto.invalido{border-color:var(--erro);outline-color:var(--erro)}
+.data input.nativo{position:absolute;left:0;bottom:0;width:1px;height:1px;min-height:0;padding:0;border:0;opacity:0;pointer-events:none}
+.data button.cal{flex:none;width:2.5882rem;padding:0;display:flex;align-items:center;justify-content:center;background:#E4ECF4;color:var(--navy)}
+.data button.cal svg{width:1.1765rem;height:1.1765rem}
+.vazio{color:var(--suave);padding:1.0588rem;background:#fff;border:1px dashed var(--linha);border-radius:0.5882rem}
+footer{padding:0 1.1765rem 1.7647rem;color:var(--suave);font-size:0.8235rem}
+@media (max-width:620px) and (hover:none),(max-width:620px) and (pointer:coarse){.lado{align-items:flex-start}.execucao,.selo{text-align:left}.bilhete{grid-template-columns:1fr}.bilhete .canhoto{border-left:0;border-top:2px dashed var(--linha);flex-direction:row;flex-wrap:wrap}.bilhete .canhoto::before,.bilhete .canhoto::after{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div><h1>Gerenciador de Aluguel de Carros</h1><p>Locações monitoradas pelo robô.</p></div>
+  <div class="lado">
+  <div class="selo" aria-label="Versão do Gerenciador">v1.1 · 18-out-26<br>3:15 pm</div>
+  <div class="execucao" id="execucao">Última execução: carregando…</div>
+  </div>
+</div></header>
+<main class="wrap">
+
+<section id="secToken" hidden>
+  <h2>Conectar ao robô</h2>
+  <div class="painel">
+    <p>Cole o token de acesso do GitHub. Ele fica guardado só neste navegador e dá acesso apenas ao repositório <b>bot-aluguel</b>.</p>
+    <label for="token">Token de acesso</label>
+    <input id="token" type="password" autocomplete="off" placeholder="github_pat_...">
+    <div class="acoes"><button class="principal" id="btnToken">Conectar</button></div>
+    <div id="msgToken"></div>
+  </div>
+</section>
+
+<section id="secNova" hidden>
+  <h2>Nova locação</h2>
+  <form id="form" novalidate>
+    <p class="lembrete">O nome da locação é montado com o nome principal, o local e o mês e ano da retirada (ex.: JAIME-GRU-DEZ26).</p>
+    <h3>Onde e quando</h3>
+    <div class="grade">
+      <div><label for="nome">Nome principal</label><input id="nome" required placeholder="Jaime" autocapitalize="characters"></div>
+      <div><label for="pais">País</label>
+        <select id="pais"><option>Brasil</option><option>Estados Unidos</option><option>Portugal</option><option>Outro</option></select>
+        <div class="dica" id="dicaPais"></div></div>
+      <div><label for="codigo">Código do local (ex.: GRU)</label><input id="codigo" maxlength="4" placeholder="GRU" autocapitalize="characters"></div>
+      <div><label for="retLocal">Local de retirada</label><input id="retLocal" placeholder="Aeroporto de Guarulhos (GRU)"></div>
+      <div><label for="devLocal">Local de devolução</label><input id="devLocal" placeholder="em branco = mesmo da retirada"></div>
+      <div><label for="retData">Retirada</label><input id="retData" type="date"></div>
+      <div><label for="retHora">Hora da retirada</label><input id="retHora" type="time" value="10:00" step="1800"></div>
+      <div><label for="devData">Devolução</label><input id="devData" type="date"></div>
+      <div><label for="devHora">Hora da devolução</label><input id="devHora" type="time" value="10:00" step="1800"></div>
+    </div>
+    <h3>Carro</h3>
+    <div class="grade">
+      <div><label for="pessoas">Pessoas</label><input id="pessoas" type="number" min="1" max="9" value="4" inputmode="numeric"></div>
+      <div><label for="malas">Malas médias (~23 kg)</label><input id="malas" type="number" min="0" max="9" value="4" inputmode="numeric">
+        <div class="dica">O robô só aceita carros onde caibam todas.</div></div>
+      <div><label for="cambio">Câmbio</label>
+        <select id="cambio"><option value="indiferente">Tanto faz</option><option value="manual">Só manual</option><option value="automatico">Só automático</option></select></div>
+      <div><label for="condutores">Condutores adicionais</label><input id="condutores" type="number" min="0" max="3" value="0" inputmode="numeric">
+        <div class="dica">Se houver, o custo do 2º motorista entra no total.</div></div>
+    </div>
+    <label style="margin-top:0.8235rem">Categorias aceitas</label>
+    <div class="opcoes" id="categorias">
+      <label><input type="checkbox" value="hatch"> Hatch</label>
+      <label><input type="checkbox" value="sedan" checked> Sedã</label>
+      <label><input type="checkbox" value="suv" checked> SUV</label>
+      <label><input type="checkbox" value="minivan"> Minivan</label>
+      <label><input type="checkbox" value="picape"> Picape</label>
+    </div>
+    <h3>Condições</h3>
+    <div class="opcoes">
+      <label><input type="checkbox" id="kmLivre" checked> Quilometragem livre</label>
+      <label><input type="checkbox" id="cancelGratis" checked> Cancelamento grátis</label>
+      <label><input type="checkbox" id="pagarRetirada" checked> Nada a pagar agora (pagar na retirada)</label>
+      <label><input type="checkbox" id="semProtecao" checked> Sem proteção da locadora (uso a do cartão)</label>
+    </div>
+    <div class="grade" style="margin-top:0.8235rem">
+      <div><label for="excluir">Locadoras a excluir</label><input id="excluir" placeholder="ex.: Localiza; Foco">
+        <div class="dica">Separe por ponto e vírgula.</div></div>
+      <div><label for="target">Preço-alvo em US$ (opcional)</label><input id="target" type="number" min="1" inputmode="numeric" placeholder="em branco = só melhor preço">
+        <div class="dica">O robô avisa quando surgir algo mais barato que o melhor já visto, ou abaixo deste alvo.</div></div>
+    </div>
+    <div class="previa" id="previa">Preencha nome, local e datas para ver o resumo.</div>
+    <div class="acoes"><button class="principal" id="btnSalvar" type="submit" disabled>Salvar locação</button><button class="secundario" type="reset">Limpar</button></div>
+    <div id="msg"></div>
+  </form>
+</section>
+
+<section id="secLista" hidden>
+  <h2>Locações monitoradas</h2>
+  <div id="lista"></div>
+</section>
+</main>
+<footer class="wrap"><button class="secundario" id="btnAtualizar">Atualizar dados</button> <button class="secundario" id="btnEsquecer">Desconectar este navegador</button></footer>
+
+<script>
+const REPO = "d6t29ggrmy-del/bot-aluguel", RAMO = "main";
+const PARADA_DIAS = 30, INTERVALO_DIAS = 2;
+const CAMPOS = ["id","pais","codigo","retirada_local","devolucao_local","retirada","hora_retirada","devolucao","hora_devolucao",
+  "pessoas","malas_medias","categorias","cambio","condutores_adicionais","km_livre","cancelamento_gratis","pagar_retirada","sem_protecao",
+  "excluir_locadoras","target","status","parar_em"];
+const SITES = { "Brasil": ["Rentcars","Movida","Unidas","Priceline"] };
+const TOKENS = { "Rentcars": 15, "Movida": 10, "Unidas": 10, "Priceline": 15 };
+const MESES = ["JAN","FEV","MAR","ABR","MAI","JUN","JUL","AGO","SET","OUT","NOV","DEZ"];
+const NOMES_CAT = { hatch: "hatch", sedan: "sedã", suv: "SUV", minivan: "minivan", picape: "picape" };
+const $ = s => document.querySelector(s);
+let locacoes = [], shaCsv = null, estado = {}, alertas = {}, historico = [];
+const abertas = new Set();
+
+// ---------- armazenamento local do token ----------
+const tokenGet = () => { try { return localStorage.getItem("ga_token") || ""; } catch(e) { return ""; } };
+const tokenSet = t => { try { t ? localStorage.setItem("ga_token", t) : localStorage.removeItem("ga_token"); } catch(e) {} };
+
+// ---------- GitHub ----------
+function b64decode(s){ const bin = atob(s.replace(/\n/g,"")); return new TextDecoder().decode(Uint8Array.from(bin, c => c.charCodeAt(0))); }
+function b64encode(t){ const bytes = new TextEncoder().encode(t); let bin = ""; bytes.forEach(b => bin += String.fromCharCode(b)); return btoa(bin); }
+async function gh(caminho, opcoes = {}){
+  const r = await fetch("https://api.github.com/repos/" + REPO + "/contents/" + caminho + (opcoes.method ? "" : "?ref=" + RAMO + "&t=" + Date.now()), {
+    cache: "no-store", ...opcoes,
+    headers: { "Authorization": "Bearer " + tokenGet(), "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28" }
+  });
+  if (r.status === 401 || r.status === 403) throw new Error("TOKEN");
+  if (r.status === 404) throw new Error("404");
+  if (r.status === 409 || r.status === 422) throw new Error("CONFLITO");
+  if (!r.ok) throw new Error("HTTP " + r.status);
+  return r.json();
+}
+async function lerArquivo(caminho){ const j = await gh(caminho); return { texto: b64decode(j.content), sha: j.sha }; }
+async function lerJson(caminho){ try { return JSON.parse((await lerArquivo(caminho)).texto || "{}"); } catch(e) { if (e.message === "TOKEN") throw e; return {}; } }
+
+// ---------- CSV (com aspas, pois locais têm vírgulas) ----------
+function linhaCsv(l){
+  const out = []; let cur = "", q = false;
+  for (let i = 0; i < l.length; i++) {
+    const c = l[i];
+    if (q) { if (c === '"' && l[i+1] === '"') { cur += '"'; i++; } else if (c === '"') q = false; else cur += c; }
+    else if (c === '"') q = true; else if (c === ",") { out.push(cur); cur = ""; } else cur += c;
+  }
+  out.push(cur); return out;
+}
+function parseCsv(txt){
+  const linhas = txt.split(/\r?\n/).filter(l => l.trim());
+  if (!linhas.length) return [];
+  const cab = linhaCsv(linhas.shift()).map(x => x.trim());
+  return linhas.map(l => { const v = linhaCsv(l), o = {}; cab.forEach((c,i) => o[c] = (v[i] || "").trim()); o._extras = cab.filter(c => !CAMPOS.includes(c)); return o; });
+}
+const celula = v => { v = String(v ?? ""); return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; };
+function montarCsv(lista){
+  const extras = [...new Set(lista.flatMap(l => l._extras || []))];
+  const cab = CAMPOS.concat(extras);
+  return cab.join(",") + "\n" + lista.map(v => cab.map(c => celula(v[c])).join(",")).join("\n") + "\n";
+}
+async function gravarCsv(novaLista, mensagem){
+  await gh("alugueis.csv", { method: "PUT", body: JSON.stringify({ message: "Gerenciador: " + mensagem, content: b64encode(montarCsv(novaLista)), sha: shaCsv, branch: RAMO }) });
+}
+
+// ---------- datas e valores ----------
+const hojeChicago = () => new Intl.DateTimeFormat("en-CA", { timeZone: "America/Chicago" }).format(new Date());
+function somaDias(iso, n){ const d = new Date(iso + "T12:00:00Z"); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0,10); }
+const dias = (a, b) => Math.round((new Date(b + "T12:00:00Z") - new Date(a + "T12:00:00Z")) / 86400000);
+const br = iso => iso ? iso.slice(8,10) + "/" + iso.slice(5,7) : "—";
+const brAno = iso => iso ? br(iso) + "/" + iso.slice(2,4) : "—";
+const usd = v => "US$ " + Math.round(v).toLocaleString("pt-BR");
+const brl = v => "R$ " + (+v).toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const dataHoraTxt = dh => dh ? dh.slice(8,10) + "/" + dh.slice(5,7) + "/" + dh.slice(2,4) + " às " + dh.slice(11,16) : "";
+const sitesDe = pais => SITES[pais] || ["Rentcars","Priceline"];
+const tokensExec = pais => sitesDe(pais).reduce((s, x) => s + (TOKENS[x] || 10), 0);
+const categoriasTxt = c => (c || "").split(";").filter(Boolean).map(x => NOMES_CAT[x] || x).join(", ");
+const cambioTxt = c => ({ manual: "só manual", automatico: "só automático" })[c] || "câmbio tanto faz";
+
+// ---------- campo de data em dd/mm/aa ----------
+const ICONE_CAL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>';
+const isoParaTexto = iso => /^\d{4}-\d{2}-\d{2}$/.test(iso || "") ? iso.slice(8,10) + "/" + iso.slice(5,7) + "/" + iso.slice(2,4) : "";
+function textoParaIso(t){
+  const m = /^(\d{2})\/(\d{2})\/(\d{2})$/.exec(t); if (!m) return "";
+  const iso = "20" + m[3] + "-" + m[2] + "-" + m[1], d = new Date(iso + "T12:00:00Z");
+  return (!isNaN(d) && d.toISOString().slice(0,10) === iso) ? iso : "";
+}
+function prepararData(nativo){
+  if (nativo._texto) return;
+  const caixa = document.createElement("div"); caixa.className = "data";
+  const texto = document.createElement("input");
+  Object.assign(texto, { type: "text", className: "texto", placeholder: "dd/mm/aa", inputMode: "numeric", autocomplete: "off", maxLength: 8 });
+  if (nativo.id) { texto.id = nativo.id + "Texto"; const l = document.querySelector('label[for="' + nativo.id + '"]'); if (l) l.htmlFor = texto.id; }
+  const botao = document.createElement("button");
+  Object.assign(botao, { type: "button", className: "cal", innerHTML: ICONE_CAL }); botao.setAttribute("aria-label", "Abrir calendário");
+  nativo.parentNode.insertBefore(caixa, nativo); caixa.append(texto, botao, nativo);
+  nativo.classList.add("nativo"); nativo.tabIndex = -1; nativo.setAttribute("aria-hidden", "true");
+  let interno = false;
+  const avisar = () => { interno = true; nativo.dispatchEvent(new Event("input", { bubbles: true })); nativo.dispatchEvent(new Event("change", { bubbles: true })); interno = false; };
+  texto.addEventListener("input", () => {
+    let dg = texto.value.replace(/\D/g, "").slice(0, 6);
+    texto.value = dg.length > 4 ? dg.slice(0,2) + "/" + dg.slice(2,4) + "/" + dg.slice(4) : dg.length > 2 ? dg.slice(0,2) + "/" + dg.slice(2) : dg;
+    const iso = textoParaIso(texto.value);
+    texto.classList.toggle("invalido", texto.value.length === 8 && !iso);
+    if (nativo.value !== iso) { nativo.value = iso; avisar(); }
+  });
+  nativo.addEventListener("change", () => { if (!interno) { texto.value = isoParaTexto(nativo.value); texto.classList.remove("invalido"); avisar(); } });
+  botao.addEventListener("click", () => {
+    nativo.value = textoParaIso(texto.value) || nativo.value;
+    try { nativo.showPicker(); } catch(e) { nativo.focus(); nativo.click(); }
+  });
+  nativo._texto = texto;
+  nativo._sync = () => { texto.value = isoParaTexto(nativo.value); texto.classList.remove("invalido"); };
+}
+
+// ---------- montagem da nova locação ----------
+function limpaNome(t){ return t.normalize("NFD").replace(/[̀-ͯ]/g,"").toUpperCase().replace(/[^A-Z0-9]+/g,"-").replace(/^-|-$/g,""); }
+const sn = el => el.checked ? "sim" : "nao";
+function montarLinha(){
+  const cats = [...document.querySelectorAll("#categorias input:checked")].map(i => i.value);
+  const f = { nome: limpaNome($("#nome").value), pais: $("#pais").value, codigo: limpaNome($("#codigo").value),
+    retLocal: $("#retLocal").value.trim(), devLocal: $("#devLocal").value.trim(),
+    ret: $("#retData").value, retHora: $("#retHora").value, dev: $("#devData").value, devHora: $("#devHora").value,
+    pessoas: $("#pessoas").value || "1", malas: $("#malas").value || "0", cambio: $("#cambio").value, cond: $("#condutores").value || "0",
+    excluir: $("#excluir").value.split(";").map(s => s.trim()).filter(Boolean).join("; "), target: $("#target").value.trim() };
+  const erros = [];
+  if (!f.nome) erros.push("Informe o nome principal.");
+  if (!f.codigo) erros.push("Informe o código do local (ex.: GRU).");
+  if (!f.retLocal) erros.push("Informe o local de retirada.");
+  if (!f.ret || !f.dev) erros.push("Informe as datas de retirada e devolução.");
+  else if (f.dev < f.ret || (f.dev === f.ret && f.devHora <= f.retHora)) erros.push("A devolução precisa ser depois da retirada.");
+  if (!f.retHora || !f.devHora) erros.push("Informe os horários.");
+  if (!cats.length) erros.push("Marque pelo menos uma categoria.");
+  if (f.target && !(+f.target > 0)) erros.push("O preço-alvo precisa ser maior que zero.");
+  if (erros.length) return { erros };
+  const id = f.nome + "-" + f.codigo + "-" + MESES[+f.ret.slice(5,7) - 1] + f.ret.slice(2,4);
+  const parar = somaDias(f.ret, -PARADA_DIAS);
+  const linha = { id, pais: f.pais, codigo: f.codigo, retirada_local: f.retLocal, devolucao_local: f.devLocal || f.retLocal,
+    retirada: f.ret, hora_retirada: f.retHora, devolucao: f.dev, hora_devolucao: f.devHora,
+    pessoas: f.pessoas, malas_medias: f.malas, categorias: cats.join(";"), cambio: f.cambio, condutores_adicionais: f.cond,
+    km_livre: sn($("#kmLivre")), cancelamento_gratis: sn($("#cancelGratis")), pagar_retirada: sn($("#pagarRetirada")), sem_protecao: sn($("#semProtecao")),
+    excluir_locadoras: f.excluir, target: f.target ? String(Math.round(+f.target)) : "", status: "ativa", parar_em: parar };
+  if (parar <= hojeChicago()) erros.push("A retirada é daqui a menos de 30 dias: o robô encerraria a busca na primeira execução.");
+  if (locacoes.some(v => v.id === id)) erros.push("Já existe uma locação com o nome " + id + ".");
+  return { linha, erros, id, parar };
+}
+
+function atualizarPrevia(){
+  const r = montarLinha(), p = $("#previa");
+  $("#btnSalvar").disabled = !!r.erros.length || !r.linha;
+  $("#dicaPais").textContent = "Sites pesquisados: " + sitesDe($("#pais").value).join(", ") + ".";
+  if (!r.linha) { p.innerHTML = r.erros.length && ($("#nome").value || $("#codigo").value || $("#retData").value) ? '<span class="erro">' + r.erros[0] + '</span>' : "Preencha nome, local e datas para ver o resumo."; return; }
+  const l = r.linha, diarias = Math.max(1, Math.ceil((dias(l.retirada, l.devolucao) * 24 + (+l.hora_devolucao.slice(0,2) - +l.hora_retirada.slice(0,2))) / 24));
+  const execs = Math.max(0, Math.floor(dias(hojeChicago(), r.parar) / INTERVALO_DIAS) + 1), tk = tokensExec(l.pais);
+  const cond = [l.km_livre === "sim" ? "quilometragem livre" : "", l.cancelamento_gratis === "sim" ? "cancelamento grátis" : "",
+    l.pagar_retirada === "sim" ? "nada a pagar agora" : "", l.sem_protecao === "sim" ? "sem proteção" : ""].filter(Boolean).join(", ");
+  let aviso = "";
+  if (l.pagar_retirada === "sim" && l.pais !== "Brasil") aviso = '<br><span class="aviso">Fora do Brasil o robô pesquisa só Rentcars e Priceline, que muitas vezes cobram antecipado: talvez nenhuma oferta atenda a "nada a pagar agora".</span>';
+  p.innerHTML = "Nome: <code>" + l.id + "</code> | " + diarias + " diária" + (diarias > 1 ? "s" : "") +
+    "<br>Carro: " + categoriasTxt(l.categorias) + ", " + cambioTxt(l.cambio) + ", " + l.pessoas + " pessoa" + (+l.pessoas > 1 ? "s" : "") + " e " + l.malas_medias + " mala" + (+l.malas_medias === 1 ? "" : "s") + " média" + (+l.malas_medias === 1 ? "" : "s") + "." +
+    "<br>Condições: " + (cond || "nenhuma exigência") + "." + (l.excluir_locadoras ? " Exclui: " + l.excluir_locadoras + "." : "") +
+    "<br>Sites: " + sitesDe(l.pais).join(", ") + ". Parada automática em " + brAno(r.parar) + "." +
+    "<br>Custo estimado: ~" + tk + " mil tokens por execução, cerca de " + execs + " execuções até a parada (~" + Math.round(execs * tk) + " mil tokens)." +
+    aviso + (r.erros.length ? '<br><span class="erro">' + r.erros.join(" ") + '</span>' : "");
+}
+
+// ---------- ofertas encontradas ----------
+function tabelaOfertas(v){
+  const hs = historico.filter(h => h.id === v.id && h.retirada === v.retirada && h.devolucao === v.devolucao);
+  if (!hs.length) return '<div class="quando">Ainda não há ofertas registradas para estas datas.</div>';
+  const ult = hs.map(h => h.data_hora).sort().pop();
+  const atuais = hs.filter(h => h.data_hora === ult).sort((a, b) => +a.total_usd - +b.total_usd);
+  const validas = atuais.filter(h => h.atende === "sim");
+  const melhor = validas.length ? Math.min(...validas.map(h => +h.total_usd)) : null;
+  const menor = {};
+  hs.forEach(h => { const k = h.locadora + "|" + h.grupo; if (h.atende === "sim" && (!menor[k] || +h.total_usd < menor[k])) menor[k] = +h.total_usd; });
+  let html = '<div class="quando">Última execução: ' + dataHoraTxt(ult) + " | " + validas.length + " de " + atuais.length + " oferta" + (atuais.length > 1 ? "s" : "") + " atendem aos critérios.</div>" +
+    '<div class="rolar"><table><thead><tr><th>Locadora</th><th>Carro (grupo)</th><th>Câmbio</th><th>Total</th><th>Menor visto</th><th>Pagamento</th><th>Atende?</th><th></th></tr></thead><tbody>';
+  atuais.forEach(h => {
+    const ok = h.atende === "sim", top = ok && +h.total_usd === melhor;
+    html += '<tr class="' + (top ? "melhor" : ok ? "" : "nao") + '"><td>' + (top ? "🏆 " : "") + h.locadora + (h.fonte && h.fonte !== h.locadora ? " <small>(" + h.fonte + ")</small>" : "") + "</td>" +
+      "<td>" + h.carro + (h.grupo ? " (" + h.grupo + ")" : "") + "</td><td>" + (h.cambio || "—") + "</td>" +
+      '<td class="num">' + usd(+h.total_usd) + (h.total_brl ? "<br><small>" + brl(+h.total_brl) + "</small>" : "") + "</td>" +
+      '<td class="num">' + (menor[h.locadora + "|" + h.grupo] ? usd(menor[h.locadora + "|" + h.grupo]) : "—") + "</td>" +
+      "<td>" + (h.pagamento || "—") + "</td><td>" + (ok ? '<span class="sim">sim</span>' : (h.motivo || "não")) + "</td>" +
+      "<td>" + (h.link ? '<a href="' + h.link + '" target="_blank" rel="noopener">Abrir ↗</a>' : "") + "</td></tr>";
+  });
+  return html + "</tbody></table></div>";
+}
+
+// ---------- lista ----------
+function desenharLista(){
+  const ativas = locacoes.filter(v => v.status !== "encerrada");
+  const L = $("#lista");
+  if (!ativas.length) { L.innerHTML = '<div class="vazio">Nenhuma locação monitorada. Preencha o formulário acima para cadastrar a primeira.</div>'; return; }
+  L.innerHTML = "";
+  ativas.forEach(v => {
+    const a = (alertas[v.id] && alertas[v.id].retirada === v.retirada && alertas[v.id].devolucao === v.devolucao) ? alertas[v.id] : {};
+    const ofertas = historico.filter(h => h.id === v.id && h.retirada === v.retirada && h.devolucao === v.devolucao);
+    const el = document.createElement("div"); el.className = "bilhete";
+    el.innerHTML = '<div class="corpo"><div class="rota">' + v.codigo + (v.devolucao_local && v.devolucao_local !== v.retirada_local ? " → outro local" : "") + "<small>" + v.id + "</small></div>" +
+      '<div class="meta">' + brAno(v.retirada) + " " + v.hora_retirada + " a " + brAno(v.devolucao) + " " + v.hora_devolucao + " | " + v.retirada_local + "</div>" +
+      '<div class="meta">' + categoriasTxt(v.categorias) + ", " + cambioTxt(v.cambio) + " | " + v.pessoas + " pessoas, " + v.malas_medias + " malas médias" +
+      (+v.condutores_adicionais ? " | " + v.condutores_adicionais + " condutor" + (+v.condutores_adicionais > 1 ? "es" : "") + " adicional" + (+v.condutores_adicionais > 1 ? "is" : "") : "") + "</div>" +
+      '<div class="precos">Melhor preço atual: <b>' + (a.ultimo_preco ? usd(a.ultimo_preco) + (a.ultimo_locadora ? " (" + a.ultimo_locadora + ")" : "") : "aguardando execução") +
+      "</b> | Menor já visto: <b>" + (a.menor_preco ? usd(a.menor_preco) : "—") + "</b> | Alvo: <b>" + (v.target ? usd(+v.target) : "só melhor preço") + "</b></div>" +
+      '<div class="meta">Sites: ' + sitesDe(v.pais).join(", ") + (v.excluir_locadoras ? " | Exclui: " + v.excluir_locadoras : "") + " | Parada em " + brAno(v.parar_em) + "</div>" +
+      '<button class="verOfertas" type="button" aria-expanded="false">Ver ofertas encontradas</button><div class="ofertas"></div>' +
+      '<div class="editar"><input type="number" min="1" inputmode="numeric" placeholder="US$ (vazio = sem alvo)"><button class="principal">Salvar</button><button class="secundario">Cancelar</button></div>' +
+      '<div class="editarDatas"><div><label>Nova retirada</label><input type="date" data-c="ret"></div><div><label>Nova devolução</label><input type="date" data-c="dev"></div>' +
+      '<button class="principal">Salvar datas</button><button class="secundario">Cancelar</button></div></div>' +
+      '<div class="canhoto"><span class="estado">Ativa</span>' +
+      '<button class="secundario" data-a="target">' + (v.target ? "Alterar alvo" : "Definir alvo") + '</button>' +
+      '<button class="secundario" data-a="datas">Alterar datas</button><button class="perigo" data-a="encerrar">Encerrar</button></div>';
+    const ed = el.querySelector(".editar"), inp = ed.querySelector("input");
+    const edd = el.querySelector(".editarDatas"), dRet = edd.querySelector('[data-c="ret"]'), dDev = edd.querySelector('[data-c="dev"]');
+    prepararData(dRet); prepararData(dDev);
+    el.querySelector('[data-a="target"]').onclick = () => { edd.classList.remove("aberto"); ed.classList.add("aberto"); inp.value = v.target || ""; inp.focus(); };
+    ed.querySelector(".secundario").onclick = () => ed.classList.remove("aberto");
+    ed.querySelector(".principal").onclick = () => alterar(v, "target", inp.value.trim());
+    el.querySelector('[data-a="datas"]').onclick = () => { ed.classList.remove("aberto"); edd.classList.add("aberto");
+      dRet.value = v.retirada; dDev.value = v.devolucao; dRet._sync(); dDev._sync(); dRet._texto.focus(); };
+    edd.querySelector(".secundario").onclick = () => edd.classList.remove("aberto");
+    edd.querySelector(".principal").onclick = () => alterarDatas(v, dRet.value, dDev.value);
+    el.querySelector('[data-a="encerrar"]').onclick = () => { if (confirm("Encerrar o monitoramento de " + v.id + "? O robô deixa de pesquisar esta locação.")) alterar(v, "encerrar"); };
+    const bv = el.querySelector(".verOfertas"), cx = el.querySelector(".ofertas");
+    const mostrarOfertas = abrir => {
+      if (abrir) { cx.innerHTML = tabelaOfertas(v); abertas.add(v.id); } else abertas.delete(v.id);
+      cx.classList.toggle("aberto", abrir); bv.setAttribute("aria-expanded", abrir);
+      bv.textContent = (abrir ? "Ocultar ofertas encontradas" : "Ver ofertas encontradas");
+    };
+    bv.onclick = () => mostrarOfertas(!cx.classList.contains("aberto"));
+    if (abertas.has(v.id)) mostrarOfertas(true);
+    L.appendChild(el);
+  });
+}
+
+async function alterar(v, acao, valor){
+  if (acao === "target" && valor && !(+valor > 0)) { alert("Informe um valor em dólares maior que zero, ou deixe em branco."); return; }
+  try {
+    await carregar(true);
+    const nova = locacoes.map(x => x.id !== v.id ? x : (acao === "encerrar" ? { ...x, status: "encerrada" } : { ...x, target: valor ? String(Math.round(+valor)) : "" }));
+    await gravarCsv(nova, (acao === "encerrar" ? "encerrar " : "alvo " + (valor || "vazio") + " em ") + v.id);
+    await carregar();
+    toast(acao === "encerrar" ? "Locação encerrada." : "Alvo salvo. Vale a partir da próxima execução.");
+  } catch(e) { tratarErro(e); }
+}
+
+async function alterarDatas(v, ret, dev){
+  if (!ret || !dev) { alert("Informe a nova retirada e a nova devolução."); return; }
+  if (dev < ret) { alert("A devolução precisa ser depois da retirada."); return; }
+  const parar = somaDias(ret, -PARADA_DIAS);
+  if (parar <= hojeChicago()) { alert("A nova retirada é daqui a menos de 30 dias: o robô encerraria a busca na primeira execução."); return; }
+  if (ret === v.retirada && dev === v.devolucao) { alert("As datas são as mesmas de hoje."); return; }
+  if (!confirm("Mudar " + v.id + " para " + brAno(ret) + " a " + brAno(dev) + "?\n\nO menor preço visto e os alertas desta locação recomeçam do zero. A parada automática passa para " + brAno(parar) + ".")) return;
+  try {
+    await carregar(true);
+    const nova = locacoes.map(x => x.id !== v.id ? x : { ...x, retirada: ret, devolucao: dev, parar_em: parar });
+    await gravarCsv(nova, "datas " + ret + " a " + dev + " em " + v.id);
+    await carregar();
+    toast("Datas de " + v.id + " salvas. O histórico recomeça na próxima execução.");
+  } catch(e) { tratarErro(e); }
+}
+
+// ---------- carregamento ----------
+async function carregar(silencioso){
+  const csv = await lerArquivo("alugueis.csv");
+  locacoes = parseCsv(csv.texto); shaCsv = csv.sha;
+  if (silencioso) return;
+  let hist;
+  [estado, alertas, hist] = await Promise.all([lerJson("estado.json"), lerJson("ja_alertados.json"),
+    lerArquivo("historico_precos.csv").then(r => r.texto).catch(e => { if (e.message === "TOKEN") throw e; return ""; })]);
+  historico = parseCsv(hist);
+  const ativas = locacoes.filter(v => v.status === "ativa").length;
+  $("#execucao").innerHTML = (estado.ultima_execucao ? "Última execução: " + dataHoraTxt(estado.ultima_execucao) + (estado.ultimo_resultado ? " (" + estado.ultimo_resultado + ")" : "") : "Ainda sem execuções") +
+    "<br>" + ativas + " locaç" + (ativas === 1 ? "ão ativa" : "ões ativas") + " | robô a cada " + INTERVALO_DIAS + " dias";
+  desenharLista(); atualizarPrevia();
+}
+function toast(t, cls = "certo"){ const m = $("#msg"); m.innerHTML = '<span class="' + cls + '">' + t + "</span>"; }
+function tratarErro(e){
+  if (e.message === "TOKEN") { mostrar(false); $("#msgToken").innerHTML = '<p class="erro">O token foi recusado ou expirou. Gere um novo e cole acima.</p>'; return; }
+  if (e.message === "CONFLITO") { toast("O robô atualizou o arquivo enquanto você editava. Os dados foram recarregados: repita a ação.", "aviso"); carregar(); return; }
+  if (e.message === "404") { toast("Não encontrei o alugueis.csv no repositório bot-aluguel. Confira o nome do repositório.", "erro"); return; }
+  toast("Falha de comunicação com o GitHub (" + e.message + "). Verifique a internet e tente de novo.", "erro");
+}
+function mostrar(conectado){ $("#secToken").hidden = conectado; $("#secNova").hidden = !conectado; $("#secLista").hidden = !conectado; }
+
+// ---------- eventos ----------
+$("#form").addEventListener("input", atualizarPrevia);
+$("#form").addEventListener("change", atualizarPrevia);
+prepararData($("#retData")); prepararData($("#devData"));
+$("#form").addEventListener("reset", () => setTimeout(() => { $("#retData")._sync(); $("#devData")._sync(); atualizarPrevia(); $("#msg").innerHTML = ""; }));
+$("#retData").addEventListener("change", () => { if ($("#retData").value) $("#devData").min = $("#retData").value; });
+$("#form").addEventListener("submit", async ev => {
+  ev.preventDefault();
+  const btn = $("#btnSalvar"); btn.disabled = true; btn.textContent = "Salvando…";
+  try {
+    await carregar(true);
+    const r = montarLinha();
+    if (r.erros.length) { toast(r.erros.join(" "), "erro"); return; }
+    await gravarCsv(locacoes.concat([r.linha]), "nova locação " + r.id);
+    $("#form").reset();
+    await carregar();
+    toast("Locação " + r.id + " salva. O robô começa na próxima execução programada.");
+  } catch(e) { tratarErro(e); }
+  finally { btn.textContent = "Salvar locação"; atualizarPrevia(); }
+});
+$("#btnToken").onclick = async () => {
+  const t = $("#token").value.trim(); if (!t) return;
+  tokenSet(t); $("#msgToken").textContent = "Conectando…";
+  try { mostrar(true); await carregar(); $("#token").value = ""; $("#msgToken").textContent = ""; }
+  catch(e) { tokenSet(""); tratarErro(e); }
+};
+$("#btnAtualizar").onclick = () => carregar().then(() => toast("Dados atualizados.")).catch(tratarErro);
+$("#btnEsquecer").onclick = () => { if (confirm("Remover o token deste navegador?")) { tokenSet(""); location.reload(); } };
+
+(async () => { atualizarPrevia(); if (!tokenGet()) { mostrar(false); return; } mostrar(true); try { await carregar(); } catch(e) { tratarErro(e); } })();
+</script>
+</body>
+</html>
