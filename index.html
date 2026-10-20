@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<!-- Gerenciador de Aluguel de Carros | v1.1 | 18/10/2026 15:15 | Priceline incluída em todos os países | v1.0 | 18/10/2026 14:55 | primeira versão: cadastro de locações com todos os critérios, lista com ofertas encontradas, alteração de alvo e datas, encerramento -->
+<!-- Gerenciador de Aluguel de Carros | v1.2 | 20/10/2026 18:22 | botões Atualizar/Desconectar movidos para o cabeçalho (padrão dos outros gerenciadores) | v1.1 | 18/10/2026 15:15 | Priceline incluída em todos os países | v1.0 | 18/10/2026 14:55 | primeira versão: cadastro de locações com todos os critérios, lista com ofertas encontradas, alteração de alvo e datas, encerramento -->
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
 <title>Gerenciador de Aluguel</title>
@@ -30,6 +30,10 @@ h3{font-size:1rem;margin:1.0588rem 0 0.5882rem;color:var(--navy)}
 h3:first-of-type{margin-top:0}
 .execucao{min-width:12.9412rem;font-size:0.8824rem;color:#DCE9F6;text-align:right}
 .lado{display:flex;flex-direction:column;align-items:flex-end;gap:0.7059rem}
+.topo-dir{display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;justify-content:flex-end}
+.btn-topo{font:inherit;font-size:0.85rem;font-weight:700;color:#fff;background:transparent;border:1px solid #6F86A0;border-radius:0.6rem;padding:0.4rem 0.75rem;cursor:pointer;min-height:2.2rem}
+.btn-topo:hover{background:#ffffff1f;border-color:#C3D0DD}
+@media (max-width:620px){.lado{width:100%}.topo-dir{justify-content:flex-start}}
 .selo{background:#1F252D;border:1px solid #3A4452;border-radius:0.5882rem;padding:0.3529rem 0.8235rem;color:#A9D6F5;font-weight:700;font-size:0.8235rem;line-height:1.35;text-align:right;white-space:nowrap}
 form,.painel{background:#fff;border:1px solid var(--linha);border-radius:0.5882rem;padding:1.0588rem}
 .grade{display:grid;grid-template-columns:repeat(auto-fit,minmax(10rem,1fr));gap:0.8235rem}
@@ -97,14 +101,16 @@ button:disabled{opacity:.5;cursor:default}
 footer{padding:0 1.1765rem 1.7647rem;color:var(--suave);font-size:0.8235rem}
 @media (max-width:620px) and (hover:none),(max-width:620px) and (pointer:coarse){.lado{align-items:flex-start}.execucao,.selo{text-align:left}.bilhete{grid-template-columns:1fr}.bilhete .canhoto{border-left:0;border-top:2px dashed var(--linha);flex-direction:row;flex-wrap:wrap}.bilhete .canhoto::before,.bilhete .canhoto::after{display:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+header .lado .selo{align-self:flex-end;text-align:right}
 </style>
 </head>
 <body>
 <header><div class="wrap">
   <div><h1>Gerenciador de Aluguel de Carros</h1><p>Locações monitoradas pelo robô.</p></div>
   <div class="lado">
-  <div class="selo" aria-label="Versão do Gerenciador">v1.1 · 18-out-26<br>3:15 pm</div>
+  <div class="topo-dir"><button class="btn-topo" id="btnAtualizar">Atualizar dados</button><button class="btn-topo" id="btnEsquecer">Desconectar este navegador</button></div>
   <div class="execucao" id="execucao">Última execução: carregando…</div>
+  <div class="selo" aria-label="Versão do Gerenciador">v1.2 · 20-out-26<br>6:22 pm</div>
   </div>
 </div></header>
 <main class="wrap">
@@ -180,7 +186,6 @@ footer{padding:0 1.1765rem 1.7647rem;color:var(--suave);font-size:0.8235rem}
   <div id="lista"></div>
 </section>
 </main>
-<footer class="wrap"><button class="secundario" id="btnAtualizar">Atualizar dados</button> <button class="secundario" id="btnEsquecer">Desconectar este navegador</button></footer>
 
 <script>
 const REPO = "d6t29ggrmy-del/bot-aluguel", RAMO = "main";
